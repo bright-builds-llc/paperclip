@@ -2,6 +2,11 @@
 
 This methodology fixes how later phases will classify findings, what evidence they must collect, and when a risky behavior is an accepted local-trusted sharp edge versus a real vulnerability.
 
+It is downstream from:
+
+- `.planning/phases/01-threat-model-attack-surface-baseline/01-THREAT-MODEL.md`
+- `.planning/phases/01-threat-model-attack-surface-baseline/01-ATTACK-SURFACE.md`
+
 ## Severity Rubric
 
 Use the highest applicable severity after considering exploit preconditions, blast radius, and deployment-mode reach.
@@ -157,4 +162,3 @@ Required fields:
    - what to tighten
    - where
    - what regression to test
-
