@@ -7,8 +7,8 @@
 
 ### Threat Model
 
-- [ ] **THRT-01**: Maintainer can read a documented threat model covering board users, agents, plugins, local operators, deployment modes, and trust boundaries
-- [ ] **THRT-02**: Maintainer can see all meaningful entry points and attack surfaces mapped to concrete files, routes, commands, and runtime flows
+- [x] **THRT-01**: Maintainer can read a documented threat model covering board users, agents, plugins, local operators, deployment modes, and trust boundaries
+- [x] **THRT-02**: Maintainer can see all meaningful entry points and attack surfaces mapped to concrete files, routes, commands, and runtime flows
 
 ### Authentication & Access Control
 
@@ -65,8 +65,8 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| THRT-01 | Phase 1 | Pending |
-| THRT-02 | Phase 1 | Pending |
+| THRT-01 | Phase 1 | Complete |
+| THRT-02 | Phase 1 | Complete |
 | AUTH-01 | Phase 2 | Pending |
 | AUTH-02 | Phase 2 | Pending |
 | AUTH-03 | Phase 2 | Pending |

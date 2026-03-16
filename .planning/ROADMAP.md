@@ -12,7 +12,7 @@ This roadmap turns a broad repo-security review into a sequence of focused audit
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Threat Model & Attack Surface Baseline** - Define attacker model, trust boundaries, and the concrete review surface
+- [x] **Phase 1: Threat Model & Attack Surface Baseline** - Define attacker model, trust boundaries, and the concrete review surface
 - [ ] **Phase 2: Identity, Auth & Tenant Isolation** - Review board, agent, company-scoping, and realtime access controls
 - [ ] **Phase 3: Process Execution & Host Interaction** - Review shell/process spawning, workspaces, worktrees, runtime services, and env propagation
 - [ ] **Phase 4: Plugin & Extension Boundary Review** - Review plugin install, activation, RPC, tools, jobs, webhooks, and UI extension isolation
@@ -33,9 +33,9 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: Inventory principals, deployment modes, and trust boundaries
-- [ ] 01-02: Map entry points and high-risk subsystems
-- [ ] 01-03: Define severity rubric and findings evidence format
+- [x] 01-01: Inventory principals, deployment modes, and trust boundaries
+- [x] 01-02: Map entry points and high-risk subsystems
+- [x] 01-03: Define severity rubric and findings evidence format
 
 ### Phase 2: Identity, Auth & Tenant Isolation
 **Goal**: Determine whether authentication and authorization boundaries can be bypassed or crossed
@@ -133,7 +133,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Threat Model & Attack Surface Baseline | 0/3 | Not started | - |
+| 1. Threat Model & Attack Surface Baseline | 3/3 | Complete | 2026-03-15 |
 | 2. Identity, Auth & Tenant Isolation | 0/3 | Not started | - |
 | 3. Process Execution & Host Interaction | 0/4 | Not started | - |
 | 4. Plugin & Extension Boundary Review | 0/3 | Not started | - |
