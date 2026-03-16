@@ -219,3 +219,77 @@
 - Added an explicit 15s timeout to `server/src/__tests__/workspace-runtime.test.ts` because the shared runtime-service reuse test reproducibly exceeded Vitest's default 5s budget on this machine while still passing functionally.
 - Repo verification passed after the documentation and test-stability work: typecheck, tests, and build all succeeded.
 - Existing non-blocking warnings remained unchanged: duplicate dependency key warning in `server/package.json` and large Vite chunk warnings during `pnpm build`.
+
+---
+
+# Phase 4 Planning Task
+
+**Created:** 2026-03-16
+**Scope:** Plan Phase 4 of the Paperclip security audit by defining the plugin review split, writing the Phase 4 research note, and creating executable plan docs for plugin install or lifecycle, capability or host RPC privilege, and tools-webhooks-UI isolation.
+
+## Plan
+
+- [x] Validate the Phase 4 contract from `.planning/ROADMAP.md`, `.planning/REQUIREMENTS.md`, and `.planning/STATE.md`.
+- [x] Review Phase 1 and Phase 3 artifacts so Phase 4 inherits the same trust model and carry-forward concerns.
+- [x] Inspect the plugin loader, lifecycle, worker manager, capability model, host services, routes, and UI bridge files that define the current plugin boundary.
+- [x] Write `.planning/phases/04-plugin-extension-boundary-review/04-RESEARCH.md`.
+- [x] Write `.planning/phases/04-plugin-extension-boundary-review/04-01-PLAN.md`.
+- [x] Write `.planning/phases/04-plugin-extension-boundary-review/04-02-PLAN.md`.
+- [x] Write `.planning/phases/04-plugin-extension-boundary-review/04-03-PLAN.md`.
+- [x] Run local Phase 4 plan checks for file existence, frontmatter shape, requirement coverage, and dependency coherence.
+
+## Verification
+
+- [x] `test -f .planning/phases/04-plugin-extension-boundary-review/04-RESEARCH.md`
+- [x] `test -f .planning/phases/04-plugin-extension-boundary-review/04-01-PLAN.md`
+- [x] `test -f .planning/phases/04-plugin-extension-boundary-review/04-02-PLAN.md`
+- [x] `test -f .planning/phases/04-plugin-extension-boundary-review/04-03-PLAN.md`
+- [x] Frontmatter check: phase slug, plan ids, waves, dependencies, and non-empty requirements
+- [x] Requirement coverage check: `PLUG-01`, `PLUG-02`
+
+## Completion Review
+
+- Created `.planning/phases/04-plugin-extension-boundary-review/04-RESEARCH.md` plus three executable Phase 4 plan docs aligned to the roadmap split.
+- The research note captures the current plugin trust model: out-of-process but unsandboxed workers, trusted same-origin plugin UI, board-only management routes, public webhook ingress, and capability-gated worker RPC over a broad host-service surface.
+- Local plan checks passed for file existence, required research headings, frontmatter shape, wave and dependency coherence, and requirement coverage across `PLUG-01` and `PLUG-02`.
+- Restored the missing Phase 4 planning artifacts so the state file, task log, and phase directory now match the repo contents again.
+- No repo-wide build or test run was needed for this planning-only step because the change set is documentation under `.planning/` and `.codex/tasks/`.
+
+---
+
+# Phase 4 Execution Task
+
+**Created:** 2026-03-16
+**Scope:** Execute Phase 4 of the Paperclip security audit by reviewing plugin install or lifecycle boundaries, capability or host RPC privilege, and tools-webhooks-UI isolation.
+
+## Plan
+
+- [x] Re-load Phase 4 plans, Phase 1 methodology, and prior auth or execution findings that affect plugin trust assumptions.
+- [x] Review plugin install, activation, upgrade, and worker lifecycle boundaries.
+- [x] Review capability approval, worker-to-host RPC handlers, and company-sensitive privilege surfaces.
+- [x] Review plugin tools, jobs, webhook ingress, and same-origin UI routing or bridge behavior.
+- [x] Write `04-INSTALL-LIFECYCLE-REVIEW.md`.
+- [x] Write `04-CAPABILITY-HOST-RPC-REVIEW.md`.
+- [x] Write `04-TOOLS-WEBHOOKS-UI-REVIEW.md`.
+- [x] Write `04-01-SUMMARY.md`, `04-02-SUMMARY.md`, and `04-03-SUMMARY.md`.
+- [x] Write `04-VERIFICATION.md`.
+- [x] Run phase artifact checks for required sections, finding-state coverage, and summary presence.
+- [x] Run repo verification: `pnpm -r typecheck`, `pnpm test:run`, `pnpm build`.
+- [x] Update `.planning/ROADMAP.md`, `.planning/STATE.md`, and `.planning/REQUIREMENTS.md`.
+
+## Verification
+
+- [x] Phase artifact checks: required sections, summary presence, and finding coverage
+- [x] `pnpm -r typecheck`
+- [x] `pnpm test:run`
+- [x] `pnpm build`
+
+## Completion Review
+
+- Executed all three Phase 4 plans and produced install-lifecycle, capability-host-RPC, tools-webhooks-UI, summary, and verification artifacts under `.planning/phases/04-plugin-extension-boundary-review/`.
+- Confirmed two main vulnerability classes in this phase:
+  - non-instance-admin board users can manage and install instance-wide plugins through board-only lifecycle routes
+  - same-origin plugin UI can drive cross-company worker actions because bridge requests do not reliably preserve the caller's company scope
+- Identified unsafe-by-default public plugin webhook ingress as a likely vulnerability because privileged webhook handlers depend on plugin authors implementing their own request verification correctly.
+- Repo verification passed after the documentation work: typecheck, tests, and build all succeeded.
+- Existing non-blocking warnings remained unchanged: duplicate dependency key warning in `server/package.json` and large Vite chunk warnings during `pnpm build`.

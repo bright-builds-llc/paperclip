@@ -24,8 +24,8 @@
 
 ### Plugins & Extension Surfaces
 
-- [ ] **PLUG-01**: Maintainer can verify whether plugin install and activation flows create untrusted code-execution or privilege-expansion risk
-- [ ] **PLUG-02**: Maintainer can verify whether plugin tools, jobs, webhooks, UI routes, and worker RPC paths preserve company and principal boundaries
+- [x] **PLUG-01**: Maintainer can verify whether plugin install and activation flows create untrusted code-execution or privilege-expansion risk
+- [x] **PLUG-02**: Maintainer can verify whether plugin tools, jobs, webhooks, UI routes, and worker RPC paths preserve company and principal boundaries
 
 ### Secrets, Data Exposure & Storage
 
@@ -73,8 +73,8 @@
 | EXEC-01 | Phase 3 | Complete |
 | EXEC-02 | Phase 3 | Complete |
 | EXEC-03 | Phase 3 | Complete |
-| PLUG-01 | Phase 4 | Pending |
-| PLUG-02 | Phase 4 | Pending |
+| PLUG-01 | Phase 4 | Complete |
+| PLUG-02 | Phase 4 | Complete |
 | DATA-01 | Phase 5 | Pending |
 | DATA-02 | Phase 5 | Pending |
 | SUPP-01 | Phase 6 | Pending |
@@ -88,4 +88,4 @@
 
 ---
 *Requirements defined: 2026-03-15*
-*Last updated: 2026-03-15 after Phase 3 completion*
+*Last updated: 2026-03-16 after Phase 4 completion*

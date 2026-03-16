@@ -5,22 +5,22 @@
 See: .planning/PROJECT.md (updated 2026-03-15)
 
 **Core value:** Produce a credible, exploit-focused inventory of Paperclip's real security risks so the most dangerous paths can be prioritized and remediated before they become incidents.
-**Current focus:** Phase 4 — Plugin & Extension Boundary Review
+**Current focus:** Phase 5 — Secrets, Storage & Data Exposure
 
 ## Current Position
 
-Phase: 4 of 7 (Plugin & Extension Boundary Review)
+Phase: 5 of 7 (Secrets, Storage & Data Exposure)
 Plan: 0 of 3 in current phase
-Status: Phase 3 completed and verified; ready to plan Phase 4
-Last activity: 2026-03-15 — Executed Phase 3 process-execution and host-interaction review
-Progress: [████░░░░░░] 43%
+Status: Phase 4 completed and verified; ready to plan Phase 5
+Last activity: 2026-03-16 — Completed Phase 4 plugin boundary review
+Progress: [█████░░░░░] 57%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 10
-- Average duration: 13 min
-- Total execution time: 2.2 hours
+- Total plans completed: 13
+- Average duration: 15 min
+- Total execution time: 3.2 hours
 
 **By Phase:**
 
@@ -29,10 +29,11 @@ Progress: [████░░░░░░] 43%
 | 1. Threat Model & Attack Surface Baseline | 3 | 27 min | 9 min |
 | 2. Identity, Auth & Tenant Isolation | 3 | 42 min | 14 min |
 | 3. Process Execution & Host Interaction | 4 | 65 min | 16 min |
+| 4. Plugin & Extension Boundary Review | 3 | 59 min | 20 min |
 
 **Recent Trend:**
-- Last 5 plans: 14 min, 18 min, 16 min, 20 min, 11 min
-- Trend: Up from cross-layer execution and artifact review
+- Last 5 plans: 20 min, 11 min, 22 min, 20 min, 17 min
+- Trend: Up from plugin boundary tracing and cross-layer scope analysis
 
 ## Accumulated Context
 
@@ -55,15 +56,18 @@ Recent decisions affecting current work:
 
 - Confirmed Phase 2 findings now exist for cross-company board mutations, websocket private-hostname drift, and unauthenticated run-to-issues metadata access
 - Confirmed Phase 3 finding now exists for same-company cross-agent heartbeat artifact exposure
-- Phase 4 should determine whether plugin install, worker capability, webhook, and UI-extension paths can reach the operator-controlled execution surfaces reviewed in Phase 3
+- Confirmed Phase 4 findings now exist for instance-wide plugin management by non-instance-admin board users and cross-company worker actions through the plugin UI bridge
+- Phase 4 also identified unsafe-by-default public webhook ingress as a likely vulnerability when plugins omit their own request verification
+- Phase 5 should quantify secrets, logs, and tenant data exposure reachable through plugin-controlled or runtime-persisted paths
 
 ### Blockers/Concerns
 
-- Phase 2 and Phase 3 both found cases where broad company access is treated as sufficient even when narrower ownership or artifact boundaries likely matter
-- Several powerful execution surfaces are still safe only under trusted board or local-operator authorship; Phase 4 needs to test whether plugin-controlled paths can reach them
+- Plugin routes still treat instance-wide power as ordinary board functionality rather than instance-admin authority
+- Plugin worker authority is not consistently downscoped to the triggering board or company context
+- Public plugin webhook ingress leaves authentication correctness to plugin authors, which can turn privileged capabilities into remotely reachable behavior
 
 ## Session Continuity
 
-Last session: 2026-03-15 23:10 CDT
-Stopped at: Phase 3 complete and Phase 4 is next
+Last session: 2026-03-16 06:25 CDT
+Stopped at: Phase 4 complete and Phase 5 is next
 Resume file: None

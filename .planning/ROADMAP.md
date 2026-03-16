@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Threat Model & Attack Surface Baseline** - Define attacker model, trust boundaries, and the concrete review surface
 - [x] **Phase 2: Identity, Auth & Tenant Isolation** - Review board, agent, company-scoping, and realtime access controls
 - [x] **Phase 3: Process Execution & Host Interaction** - Review shell/process spawning, workspaces, worktrees, runtime services, and env propagation
-- [ ] **Phase 4: Plugin & Extension Boundary Review** - Review plugin install, activation, RPC, tools, jobs, webhooks, and UI extension isolation
+- [x] **Phase 4: Plugin & Extension Boundary Review** - Review plugin install, activation, RPC, tools, jobs, webhooks, and UI extension isolation
 - [ ] **Phase 5: Secrets, Storage & Data Exposure** - Review sensitive data handling, storage providers, logs, and persistence surfaces
 - [ ] **Phase 6: Supply Chain & Unsafe Operational Defaults** - Review onboarding, CI, release, package, and operational trust assumptions
 - [ ] **Phase 7: Findings Catalog & Remediation Roadmap** - Consolidate validated findings, accepted-risk notes, and ranked follow-up work
@@ -79,9 +79,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 04-01: Review plugin install, activation, and worker lifecycle boundaries
-- [ ] 04-02: Review capability gating, host RPC handlers, and privilege surfaces
-- [ ] 04-03: Review plugin tools, jobs, webhooks, and UI routing isolation
+- [x] 04-01: Review plugin install, activation, and worker lifecycle boundaries
+- [x] 04-02: Review capability gating, host RPC handlers, and privilege surfaces
+- [x] 04-03: Review plugin tools, jobs, webhooks, and UI routing isolation
 
 ### Phase 5: Secrets, Storage & Data Exposure
 **Goal**: Determine whether Paperclip can expose secrets or tenant data through persistence and artifact handling
@@ -136,7 +136,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 | 1. Threat Model & Attack Surface Baseline | 3/3 | Complete | 2026-03-15 |
 | 2. Identity, Auth & Tenant Isolation | 3/3 | Complete | 2026-03-15 |
 | 3. Process Execution & Host Interaction | 4/4 | Complete | 2026-03-15 |
-| 4. Plugin & Extension Boundary Review | 0/3 | Not started | - |
+| 4. Plugin & Extension Boundary Review | 3/3 | Complete | 2026-03-16 |
 | 5. Secrets, Storage & Data Exposure | 0/3 | Not started | - |
 | 6. Supply Chain & Unsafe Operational Defaults | 0/2 | Not started | - |
 | 7. Findings Catalog & Remediation Roadmap | 0/3 | Not started | - |
