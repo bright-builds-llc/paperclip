@@ -257,6 +257,43 @@
 
 ---
 
+# Phase 6 Execution Task
+
+**Created:** 2026-03-16
+**Scope:** Execute Phase 6 of the Paperclip security audit by reviewing onboarding and operator defaults plus package, build, and publish-chain integrity assumptions.
+
+## Plan
+
+- [x] Re-load Phase 6 plans, current roadmap state, and the Phase 1 methodology baseline.
+- [x] Review onboarding, run, doctor, worktree, Docker, CI, and release entrypoint assumptions.
+- [x] Review package-management, lockfile, build, and publish-manifest integrity behavior.
+- [x] Write `06-OPERATIONAL-DEFAULTS-REVIEW.md`.
+- [x] Write `06-PACKAGE-BUILD-PUBLISH-REVIEW.md`.
+- [x] Write `06-01-SUMMARY.md` and `06-02-SUMMARY.md`.
+- [x] Write `06-VERIFICATION.md`.
+- [x] Run phase artifact checks for required sections, finding coverage, and summary presence.
+- [x] Run repo verification: `pnpm -r typecheck`, `pnpm test:run`, `pnpm build`.
+- [x] Update `.planning/ROADMAP.md`, `.planning/STATE.md`, and `.planning/REQUIREMENTS.md`.
+- [x] Review diff and commit Phase 6 completion metadata.
+
+## Verification
+
+- [x] Phase artifact checks: required sections, summary presence, and evidence-backed finding coverage
+- [x] `pnpm -r typecheck`
+- [x] `pnpm test:run`
+- [x] `pnpm build`
+
+## Completion Review
+
+- Executed both Phase 6 plans and produced operational-default, package-build-publish, summary, and verification artifacts under `.planning/phases/06-supply-chain-unsafe-operational-defaults/`.
+- Confirmed the phase's main unsafe-default finding: authenticated public deployments over plain HTTP are only warning-gated and can still start.
+- Confirmed the phase's main supply-chain integrity finding: PR verification and release verification can run against different dependency graphs because mutable resolution is allowed before the lockfile is later frozen.
+- Recorded a likely low-severity publish-chain drift issue where the generated CLI publish manifest already lags the CLI's real adapter import graph.
+- Repo verification passed after the documentation work: typecheck, tests, and build all succeeded.
+- Existing non-blocking warnings remained unchanged: duplicate dependency key warning in `server/package.json` and large Vite chunk warnings during `pnpm build`.
+
+---
+
 # Phase 4 Execution Task
 
 **Created:** 2026-03-16
@@ -366,3 +403,37 @@
 - Extended the Phase 3 artifact-exposure finding by documenting the same-company persisted read surface across heartbeat-run routes, issue-history routes, and activity payloads.
 - Repo verification passed after the Phase 5 documentation work: typecheck, tests, and build all succeeded.
 - Existing non-blocking warnings remained unchanged: duplicate dependency key warning in `server/package.json` and large Vite chunk warnings during `pnpm build`.
+
+---
+
+# Phase 6 Planning Task
+
+**Created:** 2026-03-16
+**Scope:** Plan Phase 6 of the Paperclip security audit by defining the supply-chain review split, writing the Phase 6 research note, and creating executable plan docs for operational defaults plus package/build/publish integrity.
+
+## Plan
+
+- [x] Validate the Phase 6 contract from `.planning/ROADMAP.md`, `.planning/REQUIREMENTS.md`, and `.planning/STATE.md`.
+- [x] Review Phase 5 findings so Phase 6 inherits the already-confirmed auth, plugin, and data-surface risks that unsafe defaults could amplify.
+- [x] Inspect onboarding, run, doctor, worktree, Docker smoke, CI, release, lockfile, manifest, build, and publish-path files that define the Phase 6 surface.
+- [x] Write `.planning/phases/06-supply-chain-unsafe-operational-defaults/06-RESEARCH.md`.
+- [x] Write `.planning/phases/06-supply-chain-unsafe-operational-defaults/06-01-PLAN.md`.
+- [x] Write `.planning/phases/06-supply-chain-unsafe-operational-defaults/06-02-PLAN.md`.
+- [x] Run local Phase 6 plan checks for file existence, research headings, frontmatter shape, requirement coverage, and dependency coherence.
+
+## Verification
+
+- [x] `test -f .planning/phases/06-supply-chain-unsafe-operational-defaults/06-RESEARCH.md`
+- [x] `test -f .planning/phases/06-supply-chain-unsafe-operational-defaults/06-01-PLAN.md`
+- [x] `test -f .planning/phases/06-supply-chain-unsafe-operational-defaults/06-02-PLAN.md`
+- [x] Required research headings present
+- [x] Frontmatter check: phase slug, plan ids, waves, dependencies, and non-empty requirements
+- [x] Requirement coverage check: `SUPP-01`
+
+## Completion Review
+
+- Created `.planning/phases/06-supply-chain-unsafe-operational-defaults/06-RESEARCH.md` plus two executable Phase 6 plan docs aligned to the roadmap split.
+- The research note captures the concrete Phase 6 surface: quickstart and run defaults, doctor repair behavior, worktree seeding and secrets-key copy, Docker smoke harness defaults, lockfile ownership policy, release-train guardrails, and npm publish artifact rewriting.
+- The plan split keeps operator/bootstrap defaults separate from package/build/publish integrity while still carrying forward the confirmed findings from earlier phases.
+- Local plan checks passed for file existence, required research headings, frontmatter shape, wave and dependency coherence, and requirement coverage across `SUPP-01`.
+- No repo-wide build or test run was needed for this planning-only step because the change set is documentation under `.planning/` and `.codex/tasks/`.

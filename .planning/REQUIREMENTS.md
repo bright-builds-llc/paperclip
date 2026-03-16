@@ -34,7 +34,7 @@
 
 ### Supply Chain & Operational Safety
 
-- [ ] **SUPP-01**: Maintainer can verify whether onboarding, CI, release, worktree, and package-management flows can ship insecure defaults or weaken trust boundaries
+- [x] **SUPP-01**: Maintainer can verify whether onboarding, CI, release, worktree, and package-management flows can ship insecure defaults or weaken trust boundaries
 
 ### Reporting
 
@@ -77,7 +77,7 @@
 | PLUG-02 | Phase 4 | Complete |
 | DATA-01 | Phase 5 | Complete |
 | DATA-02 | Phase 5 | Complete |
-| SUPP-01 | Phase 6 | Pending |
+| SUPP-01 | Phase 6 | Complete |
 | REPT-01 | Phase 7 | Pending |
 | REPT-02 | Phase 7 | Pending |
 
@@ -88,4 +88,4 @@
 
 ---
 *Requirements defined: 2026-03-15*
-*Last updated: 2026-03-16 after Phase 5 completion*
+*Last updated: 2026-03-16 after Phase 6 completion*

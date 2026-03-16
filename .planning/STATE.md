@@ -5,22 +5,22 @@
 See: .planning/PROJECT.md (updated 2026-03-15)
 
 **Core value:** Produce a credible, exploit-focused inventory of Paperclip's real security risks so the most dangerous paths can be prioritized and remediated before they become incidents.
-**Current focus:** Phase 6 — Supply Chain & Unsafe Operational Defaults
+**Current focus:** Phase 7 — Findings Catalog & Remediation Roadmap
 
 ## Current Position
 
-Phase: 6 of 7 (Supply Chain & Unsafe Operational Defaults)
-Plan: 0 of 2 in current phase
-Status: Phase 5 completed and verified; ready to plan Phase 6
-Last activity: 2026-03-16 — Completed Phase 5 secrets, storage, and data exposure review
-Progress: [███████░░░] 71%
+Phase: 7 of 7 (Findings Catalog & Remediation Roadmap)
+Plan: 0 of 3 in current phase
+Status: Phase 6 completed and verified; ready to plan Phase 7
+Last activity: 2026-03-16 — Completed Phase 6 supply-chain and unsafe-default review
+Progress: [█████████░] 86%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 16
+- Total plans completed: 18
 - Average duration: 15 min
-- Total execution time: 4.1 hours
+- Total execution time: 4.7 hours
 
 **By Phase:**
 
@@ -31,10 +31,11 @@ Progress: [███████░░░] 71%
 | 3. Process Execution & Host Interaction | 4 | 65 min | 16 min |
 | 4. Plugin & Extension Boundary Review | 3 | 59 min | 20 min |
 | 5. Secrets, Storage & Data Exposure | 3 | 52 min | 17 min |
+| 6. Supply Chain & Unsafe Operational Defaults | 2 | 34 min | 17 min |
 
 **Recent Trend:**
-- Last 5 plans: 20 min, 17 min, 20 min, 17 min, 15 min
-- Trend: Slightly down after Phase 5 narrowed from broad plugin trust review into more concrete data-surface evidence checks
+- Last 5 plans: 20 min, 17 min, 15 min, 18 min, 16 min
+- Trend: Stable in the mid-teens even as the work shifted from repo-internal trust boundaries into operator and release-surface analysis
 
 ## Accumulated Context
 
@@ -58,18 +59,24 @@ Recent decisions affecting current work:
 - Confirmed Phase 2 findings remain open for cross-company board mutations, websocket private-hostname drift, and unauthenticated run-to-issues metadata access
 - Confirmed Phase 3 and Phase 5 review now show same-company heartbeat artifact exposure also reaches persisted issue-history and activity read surfaces
 - Confirmed Phase 4 findings remain open for instance-wide plugin management by non-instance-admin board users and cross-company worker actions through the plugin UI bridge
-- Confirmed Phase 5 finding now exists for stored same-origin HTML execution through asset and attachment content routes
-- Likely Phase 5 finding now exists for plaintext-compatible secret persistence and backup copying when strict mode remains off
-- Phase 6 should determine whether onboarding, worktree, CI, package, and release defaults amplify the already-confirmed auth, plugin, and data-surface issues
+- Confirmed Phase 5 finding remains open for stored same-origin HTML execution through asset and attachment content routes
+- Likely Phase 5 finding remains open for plaintext-compatible secret persistence and backup copying when strict mode remains off
+- Likely Phase 6 finding now exists for authenticated public deployments starting over plain HTTP with only a warning gate
+- Likely Phase 6 finding now exists for PR verification and release verification using different dependency graphs
+- Likely low-severity Phase 6 finding now exists for CLI publish-manifest drift from the imported adapter set
+- Phase 7 should consolidate all confirmed and likely findings, separate accepted-risk sharp edges, and rank the remediation order
 
 ### Blockers/Concerns
 
 - Default attachment and asset policy still allows user-controlled HTML to be served inline from the Paperclip origin
 - Secret-at-rest posture still depends on operator discipline unless strict mode is enabled and plaintext-compatible bindings are removed
 - Artifact redaction remains inconsistent across heartbeat, activity, and plugin log surfaces
+- Authenticated public deployments still do not hard-fail missing HTTPS in the documented public mode
+- Reviewed and released dependency graphs can diverge under the current lockfile policy
+- Publish artifact generation still depends on hard-coded workspace lists and release-time file copying
 
 ## Session Continuity
 
-Last session: 2026-03-16 06:25 CDT
-Stopped at: Phase 5 complete and Phase 6 is next
+Last session: 2026-03-16 07:01 CDT
+Stopped at: Phase 6 complete and Phase 7 is next
 Resume file: None
