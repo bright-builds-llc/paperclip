@@ -437,3 +437,39 @@
 - The plan split keeps operator/bootstrap defaults separate from package/build/publish integrity while still carrying forward the confirmed findings from earlier phases.
 - Local plan checks passed for file existence, required research headings, frontmatter shape, wave and dependency coherence, and requirement coverage across `SUPP-01`.
 - No repo-wide build or test run was needed for this planning-only step because the change set is documentation under `.planning/` and `.codex/tasks/`.
+
+---
+
+# Phase 7 Planning Task
+
+**Created:** 2026-03-16
+**Scope:** Plan Phase 7 of the Paperclip security audit by defining the final findings-catalog split, writing the Phase 7 research note, and creating executable plan docs for the catalog, remediation-priority matrix, and final roadmap.
+
+## Plan
+
+- [x] Validate the Phase 7 contract from `.planning/ROADMAP.md`, `.planning/REQUIREMENTS.md`, and `.planning/STATE.md`.
+- [x] Review the Phase 1 methodology and the Phase 2 through Phase 6 verification artifacts so Phase 7 is grounded in the already-verified evidence.
+- [x] Identify the main cross-phase clustering problems, especially duplicated artifact-exposure and local-worktree sharp-edge findings.
+- [x] Write `.planning/phases/07-findings-catalog-remediation-roadmap/07-RESEARCH.md`.
+- [x] Write `.planning/phases/07-findings-catalog-remediation-roadmap/07-01-PLAN.md`.
+- [x] Write `.planning/phases/07-findings-catalog-remediation-roadmap/07-02-PLAN.md`.
+- [x] Write `.planning/phases/07-findings-catalog-remediation-roadmap/07-03-PLAN.md`.
+- [x] Run local Phase 7 plan checks for file existence, research headings, frontmatter shape, requirement coverage, and dependency coherence.
+
+## Verification
+
+- [x] `test -f .planning/phases/07-findings-catalog-remediation-roadmap/07-RESEARCH.md`
+- [x] `test -f .planning/phases/07-findings-catalog-remediation-roadmap/07-01-PLAN.md`
+- [x] `test -f .planning/phases/07-findings-catalog-remediation-roadmap/07-02-PLAN.md`
+- [x] `test -f .planning/phases/07-findings-catalog-remediation-roadmap/07-03-PLAN.md`
+- [x] Required research headings present
+- [x] Frontmatter check: phase slug, plan ids, waves, dependencies, and non-empty requirements
+- [x] Requirement coverage check: `REPT-01`, `REPT-02`
+
+## Completion Review
+
+- Created `.planning/phases/07-findings-catalog-remediation-roadmap/07-RESEARCH.md` plus three executable Phase 7 plan docs aligned to the final roadmap split.
+- The research note captures the real final-phase problem: consolidate verified findings without double-counting extended issues, keep accepted-risk sharp edges visible, and turn the audit into maintainer-usable remediation work.
+- The plan split keeps evidence normalization, prioritization, and final roadmap sequencing separate so Phase 7 execution can synthesize the audit cleanly instead of collapsing discovery and ranking into one artifact.
+- Local plan checks passed for file existence, required research headings, frontmatter shape, wave and dependency coherence, and requirement coverage across `REPT-01` and `REPT-02`.
+- No repo-wide build or test run was needed for this planning-only step because the change set is documentation under `.planning/` and `.codex/tasks/`.
