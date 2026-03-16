@@ -29,8 +29,8 @@
 
 ### Secrets, Data Exposure & Storage
 
-- [ ] **DATA-01**: Maintainer can verify whether secret storage, config defaults, backup flows, and redaction logic prevent sensitive data exposure
-- [ ] **DATA-02**: Maintainer can verify whether attachments, documents, assets, run logs, and storage providers expose tenant data or unsafe file content
+- [x] **DATA-01**: Maintainer can verify whether secret storage, config defaults, backup flows, and redaction logic prevent sensitive data exposure
+- [x] **DATA-02**: Maintainer can verify whether attachments, documents, assets, run logs, and storage providers expose tenant data or unsafe file content
 
 ### Supply Chain & Operational Safety
 
@@ -75,8 +75,8 @@
 | EXEC-03 | Phase 3 | Complete |
 | PLUG-01 | Phase 4 | Complete |
 | PLUG-02 | Phase 4 | Complete |
-| DATA-01 | Phase 5 | Pending |
-| DATA-02 | Phase 5 | Pending |
+| DATA-01 | Phase 5 | Complete |
+| DATA-02 | Phase 5 | Complete |
 | SUPP-01 | Phase 6 | Pending |
 | REPT-01 | Phase 7 | Pending |
 | REPT-02 | Phase 7 | Pending |
@@ -88,4 +88,4 @@
 
 ---
 *Requirements defined: 2026-03-15*
-*Last updated: 2026-03-16 after Phase 4 completion*
+*Last updated: 2026-03-16 after Phase 5 completion*

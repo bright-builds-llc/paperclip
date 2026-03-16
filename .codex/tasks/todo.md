@@ -293,3 +293,76 @@
 - Identified unsafe-by-default public plugin webhook ingress as a likely vulnerability because privileged webhook handlers depend on plugin authors implementing their own request verification correctly.
 - Repo verification passed after the documentation work: typecheck, tests, and build all succeeded.
 - Existing non-blocking warnings remained unchanged: duplicate dependency key warning in `server/package.json` and large Vite chunk warnings during `pnpm build`.
+
+---
+
+# Phase 5 Planning Task
+
+**Created:** 2026-03-16
+**Scope:** Plan Phase 5 of the Paperclip security audit by defining the data-exposure review split, writing the Phase 5 research note, and creating executable plan docs for secrets or backup behavior, assets-documents-storage boundaries, and persisted operational artifacts.
+
+## Plan
+
+- [x] Validate the Phase 5 contract from `.planning/ROADMAP.md`, `.planning/REQUIREMENTS.md`, and `.planning/STATE.md`.
+- [x] Review Phase 3 and Phase 4 findings so Phase 5 inherits the already-confirmed artifact and plugin-boundary risks.
+- [x] Inspect the secret provider, backup, worktree seed, storage, document, asset, run-log, activity, and plugin-log files that define the Phase 5 exposure surface.
+- [x] Write `.planning/phases/05-secrets-storage-data-exposure/05-RESEARCH.md`.
+- [x] Write `.planning/phases/05-secrets-storage-data-exposure/05-01-PLAN.md`.
+- [x] Write `.planning/phases/05-secrets-storage-data-exposure/05-02-PLAN.md`.
+- [x] Write `.planning/phases/05-secrets-storage-data-exposure/05-03-PLAN.md`.
+- [x] Run local Phase 5 plan checks for file existence, research headings, frontmatter shape, requirement coverage, and dependency coherence.
+
+## Verification
+
+- [x] `test -f .planning/phases/05-secrets-storage-data-exposure/05-RESEARCH.md`
+- [x] `test -f .planning/phases/05-secrets-storage-data-exposure/05-01-PLAN.md`
+- [x] `test -f .planning/phases/05-secrets-storage-data-exposure/05-02-PLAN.md`
+- [x] `test -f .planning/phases/05-secrets-storage-data-exposure/05-03-PLAN.md`
+- [x] Required research headings present
+- [x] Frontmatter check: phase slug, plan ids, waves, dependencies, and non-empty requirements
+- [x] Requirement coverage check: `DATA-01`, `DATA-02`
+
+## Completion Review
+
+- Created `.planning/phases/05-secrets-storage-data-exposure/05-RESEARCH.md` plus three executable Phase 5 plan docs aligned to the roadmap split.
+- The research note captures the real data-exposure model in the repo: default local-encrypted secrets with opt-in strict mode, default full DB backups, worktree seeding that copies the secrets key, object-store-backed assets, inline document bodies and revisions, and mixed artifact redaction across run, activity, and plugin log surfaces.
+- Local plan checks passed for file existence, required research headings, frontmatter shape, wave and dependency coherence, and requirement coverage across `DATA-01` and `DATA-02`.
+- No repo-wide build or test run was needed for this planning-only step because the change set is documentation under `.planning/` and `.codex/tasks/`.
+
+---
+
+# Phase 5 Execution Task
+
+**Created:** 2026-03-16
+**Scope:** Execute Phase 5 of the Paperclip security audit by reviewing secret or backup behavior, assets-documents-storage boundaries, and persisted operational artifacts.
+
+## Plan
+
+- [x] Re-load Phase 5 plans, Phase 1 methodology, and Phase 3 or Phase 4 carry-forward findings that shape the data-exposure review.
+- [x] Review secret providers, config defaults, runtime resolution, redaction behavior, backups, and worktree seed duplication.
+- [x] Review assets, attachments, documents, rendering, and storage-provider boundary enforcement.
+- [x] Review heartbeat logs, activity artifacts, config revisions, plugin logs, and other persisted operational read surfaces.
+- [x] Write `05-SECRETS-BACKUP-REVIEW.md`.
+- [x] Write `05-ASSET-DOCUMENT-STORAGE-REVIEW.md`.
+- [x] Write `05-PERSISTED-ARTIFACT-REVIEW.md`.
+- [x] Write `05-01-SUMMARY.md`, `05-02-SUMMARY.md`, and `05-03-SUMMARY.md`.
+- [x] Write `05-VERIFICATION.md`.
+- [x] Run phase artifact checks for required sections, finding-state coverage, and summary presence.
+- [x] Run repo verification: `pnpm -r typecheck`, `pnpm test:run`, `pnpm build`.
+- [x] Update `.planning/ROADMAP.md`, `.planning/STATE.md`, and `.planning/REQUIREMENTS.md`.
+
+## Verification
+
+- [x] Phase artifact checks: required sections, summary presence, and finding coverage
+- [x] `pnpm -r typecheck`
+- [x] `pnpm test:run`
+- [x] `pnpm build`
+
+## Completion Review
+
+- Executed all three Phase 5 plans and produced secrets-backup, asset-document-storage, persisted-artifact, summary, and verification artifacts under `.planning/phases/05-secrets-storage-data-exposure/`.
+- Confirmed a high-severity stored-content issue: Paperclip currently allows `text/html` attachments and assets to be served inline from the application origin, creating stored same-origin HTML execution.
+- Identified a likely medium-severity secret-at-rest issue: plaintext-compatible env bindings can still persist in `agents.adapterConfig` and therefore land in ordinary database backups while strict mode remains off by default.
+- Extended the Phase 3 artifact-exposure finding by documenting the same-company persisted read surface across heartbeat-run routes, issue-history routes, and activity payloads.
+- Repo verification passed after the Phase 5 documentation work: typecheck, tests, and build all succeeded.
+- Existing non-blocking warnings remained unchanged: duplicate dependency key warning in `server/package.json` and large Vite chunk warnings during `pnpm build`.

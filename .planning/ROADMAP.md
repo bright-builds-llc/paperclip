@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Identity, Auth & Tenant Isolation** - Review board, agent, company-scoping, and realtime access controls
 - [x] **Phase 3: Process Execution & Host Interaction** - Review shell/process spawning, workspaces, worktrees, runtime services, and env propagation
 - [x] **Phase 4: Plugin & Extension Boundary Review** - Review plugin install, activation, RPC, tools, jobs, webhooks, and UI extension isolation
-- [ ] **Phase 5: Secrets, Storage & Data Exposure** - Review sensitive data handling, storage providers, logs, and persistence surfaces
+- [x] **Phase 5: Secrets, Storage & Data Exposure** - Review sensitive data handling, storage providers, logs, and persistence surfaces
 - [ ] **Phase 6: Supply Chain & Unsafe Operational Defaults** - Review onboarding, CI, release, package, and operational trust assumptions
 - [ ] **Phase 7: Findings Catalog & Remediation Roadmap** - Consolidate validated findings, accepted-risk notes, and ranked follow-up work
 
@@ -94,9 +94,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 05-01: Review secrets providers, config defaults, redaction, and backup behavior
-- [ ] 05-02: Review assets, attachments, documents, and storage-provider boundaries
-- [ ] 05-03: Review run logs and other persisted operational artifacts
+- [x] 05-01: Review secrets providers, config defaults, redaction, and backup behavior
+- [x] 05-02: Review assets, attachments, documents, and storage-provider boundaries
+- [x] 05-03: Review run logs and other persisted operational artifacts
 
 ### Phase 6: Supply Chain & Unsafe Operational Defaults
 **Goal**: Determine whether build, onboarding, and release operations can ship insecure states or erode trust boundaries
@@ -137,6 +137,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 | 2. Identity, Auth & Tenant Isolation | 3/3 | Complete | 2026-03-15 |
 | 3. Process Execution & Host Interaction | 4/4 | Complete | 2026-03-15 |
 | 4. Plugin & Extension Boundary Review | 3/3 | Complete | 2026-03-16 |
-| 5. Secrets, Storage & Data Exposure | 0/3 | Not started | - |
+| 5. Secrets, Storage & Data Exposure | 3/3 | Complete | 2026-03-16 |
 | 6. Supply Chain & Unsafe Operational Defaults | 0/2 | Not started | - |
 | 7. Findings Catalog & Remediation Roadmap | 0/3 | Not started | - |
