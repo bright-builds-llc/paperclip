@@ -18,9 +18,9 @@
 
 ### Execution & Runtime Safety
 
-- [ ] **EXEC-01**: Maintainer can see every path where request, database, plugin, or repo-controlled input reaches process execution or command construction
-- [ ] **EXEC-02**: Maintainer can see unsafe workspace, worktree, filesystem, or runtime-service behavior that could escape intended boundaries or mutate host state unexpectedly
-- [ ] **EXEC-03**: Maintainer can see whether environment propagation, session handling, and logs can leak secrets or security-relevant context into child processes or artifacts
+- [x] **EXEC-01**: Maintainer can see every path where request, database, plugin, or repo-controlled input reaches process execution or command construction
+- [x] **EXEC-02**: Maintainer can see unsafe workspace, worktree, filesystem, or runtime-service behavior that could escape intended boundaries or mutate host state unexpectedly
+- [x] **EXEC-03**: Maintainer can see whether environment propagation, session handling, and logs can leak secrets or security-relevant context into child processes or artifacts
 
 ### Plugins & Extension Surfaces
 
@@ -70,9 +70,9 @@
 | AUTH-01 | Phase 2 | Complete |
 | AUTH-02 | Phase 2 | Complete |
 | AUTH-03 | Phase 2 | Complete |
-| EXEC-01 | Phase 3 | Pending |
-| EXEC-02 | Phase 3 | Pending |
-| EXEC-03 | Phase 3 | Pending |
+| EXEC-01 | Phase 3 | Complete |
+| EXEC-02 | Phase 3 | Complete |
+| EXEC-03 | Phase 3 | Complete |
 | PLUG-01 | Phase 4 | Pending |
 | PLUG-02 | Phase 4 | Pending |
 | DATA-01 | Phase 5 | Pending |
@@ -88,4 +88,4 @@
 
 ---
 *Requirements defined: 2026-03-15*
-*Last updated: 2026-03-15 after Phase 2 completion*
+*Last updated: 2026-03-15 after Phase 3 completion*

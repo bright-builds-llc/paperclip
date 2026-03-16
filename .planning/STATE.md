@@ -5,22 +5,22 @@
 See: .planning/PROJECT.md (updated 2026-03-15)
 
 **Core value:** Produce a credible, exploit-focused inventory of Paperclip's real security risks so the most dangerous paths can be prioritized and remediated before they become incidents.
-**Current focus:** Phase 3 — Process Execution & Host Interaction
+**Current focus:** Phase 4 — Plugin & Extension Boundary Review
 
 ## Current Position
 
-Phase: 3 of 7 (Process Execution & Host Interaction)
-Plan: 0 of 4 in current phase
-Status: Phase 2 complete and verified; ready to discuss Phase 3
-Last activity: 2026-03-15 — Completed and verified Phase 2 auth and tenant-isolation review
-Progress: [███░░░░░░░] 29%
+Phase: 4 of 7 (Plugin & Extension Boundary Review)
+Plan: 0 of 3 in current phase
+Status: Phase 3 completed and verified; ready to plan Phase 4
+Last activity: 2026-03-15 — Executed Phase 3 process-execution and host-interaction review
+Progress: [████░░░░░░] 43%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0
-- Average duration: 10 min
-- Total execution time: 1.1 hours
+- Total plans completed: 10
+- Average duration: 13 min
+- Total execution time: 2.2 hours
 
 **By Phase:**
 
@@ -28,10 +28,11 @@ Progress: [███░░░░░░░] 29%
 |-------|-------|-------|----------|
 | 1. Threat Model & Attack Surface Baseline | 3 | 27 min | 9 min |
 | 2. Identity, Auth & Tenant Isolation | 3 | 42 min | 14 min |
+| 3. Process Execution & Host Interaction | 4 | 65 min | 16 min |
 
 **Recent Trend:**
-- Last 5 plans: 10 min, 9 min, 12 min, 16 min, 14 min
-- Trend: Slightly up from deeper code review
+- Last 5 plans: 14 min, 18 min, 16 min, 20 min, 11 min
+- Trend: Up from cross-layer execution and artifact review
 
 ## Accumulated Context
 
@@ -53,13 +54,16 @@ Recent decisions affecting current work:
 ### Pending Todos
 
 - Confirmed Phase 2 findings now exist for cross-company board mutations, websocket private-hostname drift, and unauthenticated run-to-issues metadata access
+- Confirmed Phase 3 finding now exists for same-company cross-agent heartbeat artifact exposure
+- Phase 4 should determine whether plugin install, worker capability, webhook, and UI-extension paths can reach the operator-controlled execution surfaces reviewed in Phase 3
 
 ### Blockers/Concerns
 
-- Phase 2 confirmed multiple authz inconsistencies; later phases should watch for the same “resolve entity by ID, skip shared guard” pattern in execution, plugin, and data routes
+- Phase 2 and Phase 3 both found cases where broad company access is treated as sufficient even when narrower ownership or artifact boundaries likely matter
+- Several powerful execution surfaces are still safe only under trusted board or local-operator authorship; Phase 4 needs to test whether plugin-controlled paths can reach them
 
 ## Session Continuity
 
-Last session: 2026-03-15 22:30 CDT
-Stopped at: Phase 2 complete and Phase 3 is ready for discussion
+Last session: 2026-03-15 23:10 CDT
+Stopped at: Phase 3 complete and Phase 4 is next
 Resume file: None

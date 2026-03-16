@@ -214,7 +214,11 @@ describe("realizeExecutionWorkspace", () => {
 });
 
 describe("ensureRuntimeServicesForRun", () => {
-  it("reuses shared runtime services across runs and starts a new service after release", async () => {
+  it(
+    "reuses shared runtime services across runs and starts a new service after release",
+    // Shared service startup and readiness checks can exceed Vitest's 5s default on slower machines.
+    { timeout: 15000 },
+    async () => {
     const workspaceRoot = await fs.mkdtemp(path.join(os.tmpdir(), "paperclip-runtime-workspace-"));
     const workspace = buildWorkspace(workspaceRoot);
     const serviceCommand =
@@ -311,7 +315,8 @@ describe("ensureRuntimeServicesForRun", () => {
     expect(third).toHaveLength(1);
     expect(third[0]?.reused).toBe(false);
     expect(third[0]?.id).not.toBe(first[0]?.id);
-  });
+    },
+  );
 });
 
 describe("normalizeAdapterManagedRuntimeServices", () => {

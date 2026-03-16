@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Threat Model & Attack Surface Baseline** - Define attacker model, trust boundaries, and the concrete review surface
 - [x] **Phase 2: Identity, Auth & Tenant Isolation** - Review board, agent, company-scoping, and realtime access controls
-- [ ] **Phase 3: Process Execution & Host Interaction** - Review shell/process spawning, workspaces, worktrees, runtime services, and env propagation
+- [x] **Phase 3: Process Execution & Host Interaction** - Review shell/process spawning, workspaces, worktrees, runtime services, and env propagation
 - [ ] **Phase 4: Plugin & Extension Boundary Review** - Review plugin install, activation, RPC, tools, jobs, webhooks, and UI extension isolation
 - [ ] **Phase 5: Secrets, Storage & Data Exposure** - Review sensitive data handling, storage providers, logs, and persistence surfaces
 - [ ] **Phase 6: Supply Chain & Unsafe Operational Defaults** - Review onboarding, CI, release, package, and operational trust assumptions
@@ -63,10 +63,10 @@ Plans:
 **Plans**: 4 plans
 
 Plans:
-- [ ] 03-01: Trace heartbeat and adapter process-execution paths
-- [ ] 03-02: Review workspaces, worktrees, and runtime-service filesystem boundaries
-- [ ] 03-03: Review env propagation, session artifacts, and log exposure
-- [ ] 03-04: Separate authenticated/public risk from expected local-only sharp edges
+- [x] 03-01: Trace heartbeat and adapter process-execution paths
+- [x] 03-02: Review workspaces, worktrees, and runtime-service filesystem boundaries
+- [x] 03-03: Review env propagation, session artifacts, and log exposure
+- [x] 03-04: Separate authenticated/public risk from expected local-only sharp edges
 
 ### Phase 4: Plugin & Extension Boundary Review
 **Goal**: Determine whether plugin surfaces expand privilege or cross tenant/principal boundaries unsafely
@@ -135,7 +135,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 |-------|----------------|--------|-----------|
 | 1. Threat Model & Attack Surface Baseline | 3/3 | Complete | 2026-03-15 |
 | 2. Identity, Auth & Tenant Isolation | 3/3 | Complete | 2026-03-15 |
-| 3. Process Execution & Host Interaction | 0/4 | Not started | - |
+| 3. Process Execution & Host Interaction | 4/4 | Complete | 2026-03-15 |
 | 4. Plugin & Extension Boundary Review | 0/3 | Not started | - |
 | 5. Secrets, Storage & Data Exposure | 0/3 | Not started | - |
 | 6. Supply Chain & Unsafe Operational Defaults | 0/2 | Not started | - |

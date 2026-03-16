@@ -144,3 +144,78 @@
 - Preserved distinction between confirmed vulnerabilities, likely authz drift, accepted bootstrap behavior, and runtime-validation leads.
 - Repo verification passed after the documentation work: typecheck, tests, and build all succeeded.
 - Existing non-blocking warnings remained unchanged: duplicate dependency key warning in `server/package.json` and large Vite chunk warnings during `pnpm build`.
+
+---
+
+# Phase 3 Planning Task
+
+**Created:** 2026-03-15
+**Scope:** Plan Phase 3 of the Paperclip security audit by defining the execution-review split, writing the Phase 3 research note, and creating executable plan docs for process execution, workspace or host boundaries, env or session exposure, and risk classification.
+
+## Plan
+
+- [x] Validate the Phase 3 contract from `.planning/ROADMAP.md`, `.planning/REQUIREMENTS.md`, and `.planning/STATE.md`.
+- [x] Review Phase 1 methodology artifacts so Phase 3 preserves the same attacker and severity model.
+- [x] Inspect the heartbeat, adapter, workspace-runtime, worktree CLI, and run-artifact code paths that define the execution surface.
+- [x] Write `.planning/phases/03-process-execution-host-interaction/03-RESEARCH.md`.
+- [x] Write `.planning/phases/03-process-execution-host-interaction/03-01-PLAN.md`.
+- [x] Write `.planning/phases/03-process-execution-host-interaction/03-02-PLAN.md`.
+- [x] Write `.planning/phases/03-process-execution-host-interaction/03-03-PLAN.md`.
+- [x] Write `.planning/phases/03-process-execution-host-interaction/03-04-PLAN.md`.
+- [x] Run local Phase 3 plan checks for file existence, frontmatter shape, requirement coverage, and dependency coherence.
+
+## Verification
+
+- [x] `test -f .planning/phases/03-process-execution-host-interaction/03-RESEARCH.md`
+- [x] `test -f .planning/phases/03-process-execution-host-interaction/03-01-PLAN.md`
+- [x] `test -f .planning/phases/03-process-execution-host-interaction/03-02-PLAN.md`
+- [x] `test -f .planning/phases/03-process-execution-host-interaction/03-03-PLAN.md`
+- [x] `test -f .planning/phases/03-process-execution-host-interaction/03-04-PLAN.md`
+- [x] Frontmatter check: phase slug, plan ids, waves, dependencies, and non-empty requirements
+- [x] Requirement coverage check: `EXEC-01`, `EXEC-02`, `EXEC-03`
+
+## Completion Review
+
+- Created `.planning/phases/03-process-execution-host-interaction/03-RESEARCH.md` plus four executable Phase 3 plan docs aligned to the roadmap split.
+- The research note captures the real execution boundaries in the repo: heartbeat orchestration, adapter families, worktree and runtime-service mutation, worktree seeding, and durable run artifacts.
+- Local plan checks passed for file existence, required research headings, frontmatter shape, wave and dependency coherence, and requirement coverage across `EXEC-01`, `EXEC-02`, and `EXEC-03`.
+- No repo-wide build or test run was needed for this planning-only step because the change set is documentation under `.planning/` and `.codex/tasks/`.
+
+---
+
+# Phase 3 Execution Task
+
+**Created:** 2026-03-15
+**Scope:** Execute Phase 3 of the Paperclip security audit by reviewing process execution, workspace or host boundaries, env or session exposure, and risk classification.
+
+## Plan
+
+- [x] Re-load Phase 3 plans, Phase 1 methodology, and current execution state.
+- [x] Review heartbeat execution inputs, adapter families, and command-construction controls.
+- [x] Review workspaces, worktrees, runtime services, and CLI worktree seeding.
+- [x] Review env propagation, session persistence, and run-log or artifact exposure.
+- [x] Write `03-PROCESS-EXECUTION-REVIEW.md`.
+- [x] Write `03-WORKSPACE-HOST-BOUNDARY-REVIEW.md`.
+- [x] Write `03-ENV-SESSION-LOG-REVIEW.md`.
+- [x] Write `03-EXECUTION-RISK-MODE-MATRIX.md`.
+- [x] Write `03-01-SUMMARY.md`, `03-02-SUMMARY.md`, `03-03-SUMMARY.md`, and `03-04-SUMMARY.md`.
+- [x] Write `03-VERIFICATION.md`.
+- [x] Run phase artifact checks for required sections, classification coverage, and summary presence.
+- [x] Run repo verification: `pnpm -r typecheck`, `pnpm test:run`, `pnpm build`.
+- [x] Update `.planning/ROADMAP.md`, `.planning/STATE.md`, and `.planning/REQUIREMENTS.md`.
+
+## Verification
+
+- [x] Phase artifact checks: required sections, summary presence, risk classification, and confirmed finding coverage
+- [x] `pnpm -r typecheck`
+- [x] `pnpm test:run`
+- [x] `pnpm build`
+
+## Completion Review
+
+- Executed all four Phase 3 plans and produced process-execution, workspace-boundary, env or session exposure, synthesis, summary, and verification artifacts under `.planning/phases/03-process-execution-host-interaction/`.
+- Confirmed the phase's main vulnerability class: same-company agents can read peer heartbeat run artifacts and logs, creating lateral exposure for secrets, prompts, session metadata, and replayable local JWTs.
+- Classified board-controlled execution, workspace shell hooks, absolute-path worktrees, and CLI secret-seeding behavior as accepted-risk sharp edges pending later plugin, data, and operations review.
+- Added an explicit 15s timeout to `server/src/__tests__/workspace-runtime.test.ts` because the shared runtime-service reuse test reproducibly exceeded Vitest's default 5s budget on this machine while still passing functionally.
+- Repo verification passed after the documentation and test-stability work: typecheck, tests, and build all succeeded.
+- Existing non-blocking warnings remained unchanged: duplicate dependency key warning in `server/package.json` and large Vite chunk warnings during `pnpm build`.
