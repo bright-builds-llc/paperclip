@@ -12,9 +12,9 @@
 
 ### Authentication & Access Control
 
-- [ ] **AUTH-01**: Maintainer can verify whether board authentication and session handling include unsafe defaults, bypasses, or deployment-mode weaknesses
-- [ ] **AUTH-02**: Maintainer can verify whether agent authentication, company scoping, and permission checks prevent cross-company access and privilege escalation
-- [ ] **AUTH-03**: Maintainer can verify whether realtime and non-REST surfaces enforce the same access guarantees as the main API
+- [x] **AUTH-01**: Maintainer can verify whether board authentication and session handling include unsafe defaults, bypasses, or deployment-mode weaknesses
+- [x] **AUTH-02**: Maintainer can verify whether agent authentication, company scoping, and permission checks prevent cross-company access and privilege escalation
+- [x] **AUTH-03**: Maintainer can verify whether realtime and non-REST surfaces enforce the same access guarantees as the main API
 
 ### Execution & Runtime Safety
 
@@ -67,9 +67,9 @@
 |-------------|-------|--------|
 | THRT-01 | Phase 1 | Complete |
 | THRT-02 | Phase 1 | Complete |
-| AUTH-01 | Phase 2 | Pending |
-| AUTH-02 | Phase 2 | Pending |
-| AUTH-03 | Phase 2 | Pending |
+| AUTH-01 | Phase 2 | Complete |
+| AUTH-02 | Phase 2 | Complete |
+| AUTH-03 | Phase 2 | Complete |
 | EXEC-01 | Phase 3 | Pending |
 | EXEC-02 | Phase 3 | Pending |
 | EXEC-03 | Phase 3 | Pending |
@@ -88,4 +88,4 @@
 
 ---
 *Requirements defined: 2026-03-15*
-*Last updated: 2026-03-15 after roadmap creation*
+*Last updated: 2026-03-15 after Phase 2 completion*
